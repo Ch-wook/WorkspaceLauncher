@@ -1,0 +1,21 @@
+# Build and Release Folders
+bin/
+obj/
+app.publish/
+
+# Visual Studio / Rider / VS Code cache and settings
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# User data storage
+workspaces.json
