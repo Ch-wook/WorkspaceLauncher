@@ -30,17 +30,33 @@
 
 ---
 
-## 🚀 실행 방법
+## 🚀 실행 및 배포 방법
 
-### 사전 요구사항
+### 1. 개발 환경에서 실행
+#### 사전 요구사항
 - [.NET 10 SDK](https://dotnet.microsoft.com/download) 설치 필요
 
-### 빌드 및 실행
+#### 빌드 및 실행
 ```powershell
 git clone https://github.com/Ch-wook/WorkspaceLauncher.git
 cd WorkspaceLauncher
 dotnet run
 ```
+
+### 2. 다른 컴퓨터에서 실행하기 (독립형 배포판 빌드)
+다른 컴퓨터에 .NET 10이 설치되어 있지 않아도 실행할 수 있도록, .NET 런타임이 포함된 단일 실행 파일로 배포할 수 있습니다.
+
+#### 독립형 단일 실행 파일 빌드 명령어
+```powershell
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true
+```
+
+#### 배포 및 사용 방법
+1. 빌드가 완료되면 `D:\WorkspaceLauncher\bin\Release\net10.0-windows\win-x64\publish` 폴더가 생성됩니다.
+2. 해당 `publish` 폴더 전체를 압축(ZIP)하여 USB나 공유 드라이브를 통해 다른 컴퓨터로 전달합니다.
+3. 다른 컴퓨터에서 압축을 푼 뒤, **`WorkspaceLauncher.exe`**를 더블클릭하면 아무런 프레임워크나 런타임 설치 없이 즉시 작동합니다.
+4. 설정값과 작업 공간 정보는 동일 폴더 내에 `workspaces.json`으로 자동 관리됩니다.
+
 
 ---
 

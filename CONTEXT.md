@@ -77,11 +77,22 @@ D:\WorkspaceLauncher\
 
 ## 5. 사용법
 
-### 빌드 및 실행
+### 빌드 및 실행 (개발 환경)
 ```powershell
 cd D:\WorkspaceLauncher
 dotnet run
 ```
+
+### 다른 컴퓨터 배포용 독립형 빌드 (Self-contained Publish)
+다른 컴퓨터에 .NET SDK나 런타임이 설치되어 있지 않아도 실행할 수 있게, 모든 런타임 요소를 하나의 파일에 패키징하여 릴리즈를 수행합니다.
+
+```powershell
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:PublishReadyToRun=true
+```
+
+- **출력 경로**: `D:\WorkspaceLauncher\bin\Release\net10.0-windows\win-x64\publish\`
+- **배포 방식**: 위 `publish` 폴더 전체를 ZIP 압축하여 다른 컴퓨터로 전달 후, 압축을 풀고 `WorkspaceLauncher.exe`를 더블클릭하면 아무런 환경 세팅 없이 즉각 동작합니다.
+
 
 ### 프로그램 사용 가이드
 
